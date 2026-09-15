@@ -34,10 +34,7 @@ async function bootstrap() {
     legacyHeaders: false,
   });
 
-  app.enableCors({
-    origin: config.get<string>('corsOrigin'),
-    credentials: true,
-  });
+
 
   app.use('/api', limiter);
   app.use(cookieParser());
