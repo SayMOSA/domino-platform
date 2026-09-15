@@ -1,0 +1,21 @@
+$kind: collection
+description: REST API for the Domino Tournament & Gaming Platform
+auth:
+  type: bearer
+  credentials:
+    token: "{{accessToken}}"
+variables:
+  accessToken: ""
+  refreshToken: ""
+  playerId: ""
+  email1: ""
+  password: ""
+  otp: ""
+  newPassword: ""
+  newName: ""
+  newNickname: ""
+  winnerPlayerId: ""
+  loserPlayerId: ""
+  seasonId: ""
+  matchId: ""
+  baseUrl: ""

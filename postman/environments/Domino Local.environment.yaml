@@ -1,0 +1,11 @@
+name: Domino Local
+values:
+  - key: baseUrl
+    value: 'http://localhost:3000'
+    enabled: true
+  - key: email
+    value: ''
+    enabled: true
+  - key: password
+    value: ''
+    enabled: true

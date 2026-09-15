@@ -1,0 +1,32 @@
+$kind: http-request
+name: Login
+method: POST
+url: '{{baseUrl}}/api/auth/login'
+order: 4000
+auth:
+  type: noauth
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "{{email}}",
+      "password": "{{password}}"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 201", () => pm.response.to.have.status(201));
+      pm.test("Returns accessToken", () => {
+        const json = pm.response.json();
+        pm.expect(json).to.have.property("accessToken");
+        pm.collectionVariables.set("accessToken", json.accessToken);
+      });
+      pm.test("Returns player object", () => {
+        const json = pm.response.json();
+        pm.expect(json).to.have.property("player");
+        pm.collectionVariables.set("playerId", json.player._id);
+      });

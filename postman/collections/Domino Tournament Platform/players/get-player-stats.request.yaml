@@ -1,0 +1,13 @@
+$kind: http-request
+name: Get Player Stats
+method: GET
+url: '{{baseUrl}}/api/players/{{playerId}}/stats?seasonId={{seasonId}}'
+order: 6000
+queryParams:
+  - key: seasonId
+    value: '{{seasonId}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", () => pm.response.to.have.status(200));

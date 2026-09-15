@@ -1,0 +1,21 @@
+$kind: http-request
+name: Get Season Matches
+method: GET
+url: '{{baseUrl}}/api/matches?page=1&limit=10&playerStatus=any'
+order: 2000
+queryParams:
+  - key: page
+    value: '1'
+  - key: limit
+    value: '10'
+  - key: playerStatus
+    value: any
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", () => pm.response.to.have.status(200));
+      pm.test("Response is object or array", () => {
+        const json = pm.response.json();
+        pm.expect(json).to.satisfy(v => typeof v === "object");
+      });

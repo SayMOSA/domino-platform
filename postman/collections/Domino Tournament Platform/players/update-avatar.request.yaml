@@ -1,0 +1,16 @@
+$kind: http-request
+name: Update Avatar
+method: PATCH
+url: '{{baseUrl}}/api/players/update-avatar'
+order: 2000
+body:
+  type: formdata
+  content:
+    - key: avatar
+      type: file
+      src: ''
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status is 200", () => pm.response.to.have.status(200));
