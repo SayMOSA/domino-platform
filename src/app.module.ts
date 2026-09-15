@@ -15,8 +15,17 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
     MongooseModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
+      useFactory: async (config: ConfigService) => ({
         uri: config.get<string>('mongodbUri'),
+        connectionFactory: (connection) => {
+          connection.on('connected', () => {
+            console.log('=> MongoDB connected successfully');
+          });
+          connection.on('error', (error: Error) => {
+            console.error('=> MongoDB connection error: ', error);
+          });
+          return connection;
+        },
       }),
     }),
     CloudinaryModule,
