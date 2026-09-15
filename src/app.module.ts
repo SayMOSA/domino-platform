@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { PlayersModule } from './players/players.module';
 import { MatchesModule } from './matches/matches.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -33,5 +34,6 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     PlayersModule,
     MatchesModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
