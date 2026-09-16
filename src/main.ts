@@ -41,14 +41,10 @@ async function bootstrap(): Promise<Handler> {
       legacyHeaders: false,
     });
 
-<<<<<<< HEAD
-
-=======
     app.enableCors({
       origin: config.get<string>('corsOrigin') || '*',
       credentials: true,
     });
->>>>>>> b7aa622 (update main.ts for vercel serverless compatibility)
 
     app.use('/api', limiter);
     app.use(cookieParser());
@@ -93,15 +89,6 @@ async function bootstrap(): Promise<Handler> {
   return cachedServer;
 }
 
-<<<<<<< HEAD
-export default async function handler(req: any, res: any) {
-  if (!cachedServer) {
-    const server = await bootstrap();
-    cachedServer = server;
-  }
-  return cachedServer(req, res);
-}
-=======
 export const handler: Handler = async (
   event: any,
   context: Context,
@@ -110,4 +97,3 @@ export const handler: Handler = async (
   const server = await bootstrap();
   return server(event, context, callback);
 };
->>>>>>> b7aa622 (update main.ts for vercel serverless compatibility)
