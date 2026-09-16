@@ -42,11 +42,6 @@ async function bootstrap(): Promise<Handler> {
       legacyHeaders: false,
     });
 
-    app.enableCors({
-      origin: config.get<string>('corsOrigin') || '*',
-      credentials: true,
-    });
-
     app.use('/api', limiter);
     app.use(cookieParser());
     app.use(helmet());
