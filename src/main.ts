@@ -8,7 +8,8 @@ import helmet from 'helmet';
 import compression from 'compression';
 import { AppModule } from './app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import express, { Express } from 'express';
+import express from 'express';
+import { Application as ExpressApp } from 'express';
 import serverlessExpress from '@vendia/serverless-express';
 import { Handler, Context, Callback } from 'aws-lambda';
 
@@ -16,7 +17,7 @@ let cachedServer: Handler;
 
 async function bootstrap(): Promise<Handler> {
   if (!cachedServer) {
-    const expressApp: Express = express();
+    const expressApp: ExpressApp = express();
     const adapter = new ExpressAdapter(expressApp);
     
     const app = await NestFactory.create(AppModule, adapter);
