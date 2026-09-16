@@ -1,7 +1,6 @@
 {
   "name": "domino-tournament",
   "version": "0.0.1",
-  "type": "module",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
