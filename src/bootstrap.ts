@@ -1,4 +1,3 @@
-import { NestFactory } from '@nestjs/core';
 import {
   ValidationPipe,
   ExceptionFilter,
@@ -24,6 +23,7 @@ import { AppModule } from './app.module';
 let cachedApp: Express | null = null;
 
 export async function createNestApp(): Promise<Express> {
+  const { NestFactory } = await import('@nestjs/core');
   if (cachedApp) {
     return cachedApp;
   }
