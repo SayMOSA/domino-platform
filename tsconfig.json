@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "target": "ES2022",
-    "moduleResolution": "NodeNext",
-    "esModuleInterop": true,
-    "strict": true,
+    "module": "commonjs",
+    "target": "es2021",
+    "moduleResolution": "node",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -16,7 +14,9 @@
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
-    "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
   }
 }
