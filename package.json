@@ -2,19 +2,16 @@
   "name": "domino-tournament",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "nest build",
-    "start": "node dist/main.js",
-    "start:prod": "node dist/main.js",
-    "vercel-build": "esbuild src/main.ts --bundle --platform=node --target=node18 --format=cjs --outfile=api/index.js --external:bcrypt",
+    "vercel-build": "esbuild src/main.ts --bundle --platform=node --target=node18 --format=cjs --outfile=api/index.js --external:bcrypt --external:mongoose --external:cloudinary",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "dependencies": {
-    "@nestjs/cli": "^10.0.0",
-    "typescript": "^5.0.0",
     "@nestjs/common": "^12.0.1",
     "@nestjs/config": "^12.0.0",
     "@nestjs/core": "^12.0.1",
@@ -22,10 +19,8 @@
     "@nestjs/mongoose": "^12.0.0",
     "@nestjs/passport": "^12.0.0",
     "@nestjs/platform-express": "^12.0.1",
-    "@nestjs/platform-socket.io": "^12.0.1",
     "@nestjs/schedule": "^12.0.1",
     "@nestjs/swagger": "^12.0.1",
-    "@nestjs/websockets": "^12.0.1",
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
@@ -35,14 +30,17 @@
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^8.7.0",
     "helmet": "^8.3.0",
-    "mongoose": "^9.10.1",
+    "mongoose": "^8.10.1",
     "nodemailer": "^10.0.1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "socket.io": "^4.8.3",
     "streamifier": "^0.1.1"
   },
   "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "typescript": "^5.0.0",
+    "esbuild": "^0.24.0",
+    "@vercel/node": "^3.0.0",
     "@types/bcrypt": "^6.0.0",
     "@types/compression": "^1.8.1",
     "@types/cookie-parser": "^1.4.10",
@@ -50,7 +48,6 @@
     "@types/multer": "^2.2.0",
     "@types/nodemailer": "^8.0.1",
     "@types/passport-jwt": "^4.0.1",
-    "@types/streamifier": "^0.1.2",
-    "@vercel/node": "^3.0.0"
+    "@types/streamifier": "^0.1.2"
   }
 }
