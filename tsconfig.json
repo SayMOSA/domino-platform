@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "CommonJS",
     "target": "ES2022",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
@@ -16,7 +16,6 @@
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
-    "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true
+    "strictPropertyInitialization": false
   }
 }
