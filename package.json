@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "scripts": {
     "build": "nest build",
-    "vercel-build": "esbuild src/main.ts --bundle --platform=node --target=node18 --format=cjs --outfile=api/index.js --external:bcrypt --external:mongoose --external:cloudinary",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -39,8 +38,6 @@
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
     "typescript": "^5.0.0",
-    "esbuild": "^0.24.0",
-    "@vercel/node": "^3.0.0",
     "@types/bcrypt": "^6.0.0",
     "@types/compression": "^1.8.1",
     "@types/cookie-parser": "^1.4.10",
