@@ -6,6 +6,7 @@
     "build": "nest build",
     "start": "node dist/main.js",
     "start:prod": "node dist/main.js",
+    "vercel-build": "esbuild src/main.ts --bundle --platform=node --target=node18 --format=cjs --outfile=api/index.js --external:bcrypt",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
