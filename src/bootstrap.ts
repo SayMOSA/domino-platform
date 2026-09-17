@@ -1,4 +1,13 @@
-
+import{ValidationPipe,
+  ExceptionFilter,
+  Catch,
+  ArgumentsHost,
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NestInterceptor,
+  ExecutionContext,
+  CallHandler} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
@@ -12,16 +21,6 @@ import { AppModule } from './app.module';
 let cachedApp: Express | null = null;
 
 export async function createNestApp(): Promise<Express> {
-  const {ValidationPipe,
-  ExceptionFilter,
-  Catch,
-  ArgumentsHost,
-  HttpException,
-  HttpStatus,
-  Injectable,
-  NestInterceptor,
-  ExecutionContext,
-  CallHandler} = await import('@nestjs/common');
   const { NestFactory } = await import('@nestjs/core');
   if (cachedApp) {
     return cachedApp;
