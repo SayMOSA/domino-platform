@@ -1,13 +1,13 @@
 {
   "name": "domino-tournament",
   "version": "0.0.1",
-  "scripts": {
-  "prebuild": "rimraf dist",
+"scripts": {
+  "prebuild": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\"",
   "build": "nest build",
   "start": "node dist/main.js",
   "start:prod": "node dist/main.js",
   "start:dev": "nest start --watch"
-  },
+}
   "dependencies": {
     "@nestjs/common": "^12.0.1",
     "@nestjs/config": "^12.0.0",
