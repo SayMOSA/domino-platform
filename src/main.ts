@@ -42,11 +42,10 @@ async function bootstrap(): Promise<Handler> {
       legacyHeaders: false,
     });
 
-    app.use('/api', limiter);
+    app.use('/', limiter);
     app.use(cookieParser());
     app.use(helmet());
     app.use(compression());
-    app.setGlobalPrefix('api');
 
     @Catch()
     class HttpExceptionFilter implements ExceptionFilter {
