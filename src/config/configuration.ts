@@ -1,6 +1,6 @@
 export default () => ({
   port: parseInt(process.env.PORT || '3000', 10),
-  mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/domino-platform',
+  mongodbUri: process.env.MONGODB_URI || 'mongodb+srv://moude011_db_user:Msyg6eVmvLv33opl@domino-platform.cmh3iz4.mongodb.net/?appName=domino-platform',
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET || 'access_secret',
     accessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN || '15m',
